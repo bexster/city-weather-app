@@ -45,26 +45,26 @@ currentDate.innerHTML = formatDate(currentDate);
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = formatTime(currentTime);
 
-function search(event) {
+function submitCity(event) {
   event.preventDefault();
-  let searchCity = document.querySelector("#enter-city-form");
-  let changeCity = document.querySelector("#city-input");
-  changeCity.innerHTML = searchCity.value;
+  let city = document.querySelector("#enter-city").value;
+  searchCity(city);
+}
 
+function searchCity(city) {
   let apiKey = "f09d3949047ab6c9e3bcaf79cf61f619";
   let units = "metric";
   let apiDomain = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiDomain}?q=${searchCity.value}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `${apiDomain}?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(receiveTemp);
 }
+searchCity("Washington D.C.");
 
 let searchButton = document.querySelector("form");
-searchButton.addEventListener("submit", search);
+searchButton.addEventListener("submit", submitCity);
 
-function showCurrentCity(event) {
-  event.preventDefault();
-  let currentCity = document.querySelector("#city-input");
-  currentCity.innerHTML = `Searching...`;
+function showCurrentCity() {
+  document.querySelector("#city-input").innerHTML = `Searching...`;
 }
 
 let clickCurrentCity = document.querySelector("#current-city-button");
@@ -101,9 +101,10 @@ function receivePosition(position) {
   axios.get(apiUrl).then(receiveTemp);
 }
 function receiveTemp(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let currentHeading = document.querySelector("#current-temp");
-  currentHeading.innerHTML = temperature;
+  document.querySelector("#city-input").innerHTML = response.data.name;
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
   document.querySelector("#city-input").innerHTML = response.data.name;
   document.querySelector("#precip").innerHTML = response.data.main.humidity;
   document.querySelector("#high-temp").innerHTML = Math.round(
@@ -116,9 +117,10 @@ function receiveTemp(response) {
     response.data.main.feels_like
   );
   document.querySelector("#temp-description").innerHTML =
-    response.data.weather[0].description;
+    response.data.weather[0].main;
 }
-function getPosition() {
+function getPosition(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(receivePosition);
 }
 document

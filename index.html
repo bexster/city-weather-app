@@ -35,35 +35,40 @@
               class="btn btn-primary"
               id="current-city-button"
               value="Current City"
-              autofocus
+              autofocus="on"
             />
           </div>
           <div class="col-6 enter-city">
-            <input type="text" id="enter-city-form" placeholder="Enter city" />
+            <input
+              type="search"
+              id="enter-city"
+              placeholder="Enter city"
+              autocomplete="off"
+            />
             <input
               type="submit"
               class="btn btn-primary"
               id="search-city-button"
               value="Search"
-              autocomplete="off"
             />
           </div>
         </div>
       </form>
       <div class="row">
         <div class="col-6">
-          <h1 class="current-city" id="city-input">Washington, DC</h1>
+          <h1 class="current-city" id="city-input"></h1>
           <div class="current">
-            🌤️ <span id="current-temp">86</span>
-            <span> <a href="#" id="fahrenheit">°F</a> |</span
-            ><span> <a href="#" id="celsius">°C</a></span>
+            🌤️ <span id="current-temp"></span
+            ><span> <a href="#" id="celsius">°C</a> |</span>
+            <span> <a href="#" id="fahrenheit">°F</a></span>
           </div>
-          <div id="temp-description">Partly cloudy</div>
+          <div id="temp-description"></div>
           <div class="current-forecast">
-            Humidity: <span id="precip">5</span>% <br /><span id="high-temp"
-              >90</span
-            >°/<span id="low-temp">86</span>° Feels like
-            <span id="feel-temp">89</span>°
+            Humidity: <span id="precip"></span>% <br /><span
+              id="high-temp"
+            ></span
+            >°/<span id="low-temp"></span>° Feels like
+            <span id="feel-temp"></span>°
           </div>
         </div>
         <div class="col-6">
@@ -118,9 +123,13 @@
         </div>
       </div>
       <footer>
-        <a href="https://github.com/bexster/city-weather-app" class="git-link"
+        <a
+          href="https://github.com/bexster/city-weather-app"
+          class="git-link"
+          target="_blank"
           >Open-source code</a
-        >by
+        >
+        by
         <span class="coder"
           ><a href="https://www.instagram.com/kpop.bexster/" target="_blank"
             >Becky Van Meter</a
