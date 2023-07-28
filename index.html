@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="icon" href="img/clouds.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/dfe5ea5aa0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="search-city">
+        <div class="row">
+          <div class="col-6 current-city">
+            <input
+              type="submit"
+              class="btn btn-primary"
+              id="current-city-button"
+              value="Current City"
+              autofocus
+            />
+          </div>
+          <div class="col-6 enter-city">
+            <input type="text" id="enter-city-form" placeholder="Enter city" />
+            <input
+              type="submit"
+              class="btn btn-primary"
+              id="search-city-button"
+              value="Search"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-6">
+          <h1 class="current-city" id="city-input">Washington, DC</h1>
+          <div class="current">
+            🌤️ <span id="current-temp">86</span>
+            <span> <a href="#" id="fahrenheit">°F</a> |</span
+            ><span> <a href="#" id="celsius">°C</a></span>
+          </div>
+          <div id="temp-description">Partly cloudy</div>
+          <div class="current-forecast">
+            Humidity: <span id="precip">5</span>% <br /><span id="high-temp"
+              >90</span
+            >°/<span id="low-temp">86</span>° Feels like
+            <span id="feel-temp">89</span>°
+          </div>
+        </div>
+        <div class="col-6">
+          <h2 id="current-date">Wednesday, July 5</h2>
+          <h2 id="current-time">12:51PM</h2>
+        </div>
+      </div>
+      <div class="card-group">
+        <div class="row g-1">
+          <div class="col-md">
+            <div class="card forecast">
+              <div class="card-body">
+                <header>Saturday July 6</header>
+                <div class="week-temperature">⛅ <br />86°F partly cloudy</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card forecast">
+              <div class="card-body">
+                <header>Saturday July 7</header>
+                <div class="week-temperature">
+                  ⛈️ <br />89°F scattered t-storms
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card forecast">
+              <div class="card-body">
+                <header>Saturday July 8</header>
+                <div class="week-temperature">🌧️ <br />91°F rain showers</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card forecast">
+              <div class="card-body">
+                <header>Saturday July 9</header>
+                <div class="week-temperature">🌤️ <br />90°F partly sunny</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card forecast">
+              <div class="card-body">
+                <header>Saturday July 10</header>
+                <div class="week-temperature">☀️ <br />90°F Sunny</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        Coded by
+        <span class="coder"
+          ><a href="https://www.instagram.com/kpop.bexster/" target="_blank"
+            >Becky Van Meter</a
+          ></span
+        >
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
