@@ -74,6 +74,8 @@ clickCurrentCity.addEventListener("click", showCurrentCity);
 function showFahrTemp(event) {
   event.preventDefault();
   let formatFahr = document.querySelector("#current-temp");
+  CelTemp.classList.remove("active");
+  FahrTemp.classList.add("active");
   let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
   formatFahr.innerHTML = `${fahrenheitTemp}`;
 }
@@ -83,8 +85,9 @@ FahrTemp.addEventListener("click", showFahrTemp);
 function showCelTemp(event) {
   event.preventDefault();
   let formatCel = document.querySelector("#current-temp");
-  let celsiusTemp = Math.round(((89 - 32) * 5) / 9);
-  formatCel.innerHTML = `${celsiusTemp}`;
+  CelTemp.classList.add("active");
+  FahrTemp.classList.remove("active");
+  formatCel.innerHTML = Math.round(celsiusTemperature);
 }
 let CelTemp = document.querySelector("#celsius");
 CelTemp.addEventListener("click", showCelTemp);
@@ -120,6 +123,12 @@ function receiveTemp(response) {
   );
   document.querySelector("#temp-description").innerHTML =
     response.data.weather[0].main;
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 let celsiusTemperature = null;
 
