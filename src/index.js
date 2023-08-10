@@ -74,7 +74,7 @@ clickCurrentCity.addEventListener("click", showCurrentCity);
 function showFahrTemp(event) {
   event.preventDefault();
   let formatFahr = document.querySelector("#current-temp");
-  let fahrenheitTemp = Math.round((32 * 9) / 5 + 32);
+  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
   formatFahr.innerHTML = `${fahrenheitTemp}`;
 }
 let FahrTemp = document.querySelector("#fahrenheit");
@@ -101,6 +101,8 @@ function receivePosition(position) {
   axios.get(apiUrl).then(receiveTemp);
 }
 function receiveTemp(response) {
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#city-input").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -119,6 +121,8 @@ function receiveTemp(response) {
   document.querySelector("#temp-description").innerHTML =
     response.data.weather[0].main;
 }
+let celsiusTemperature = null;
+
 function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(receivePosition);
