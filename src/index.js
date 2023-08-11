@@ -121,6 +121,9 @@ function receiveTemp(response) {
   document.querySelector("#feel-temp").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
   document.querySelector("#temp-description").innerHTML =
     response.data.weather[0].main;
   let iconElement = document.querySelector("#weather-icon");
