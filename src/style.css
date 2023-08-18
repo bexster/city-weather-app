@@ -16,7 +16,7 @@ body {
     rgb(109, 192, 236) 84.1%
   );
   background-size: cover;
-  max-width: 80%;
+  max-width: 65%;
   border: 1px solid #000;
   border-radius: 10px;
   padding: 20px;
@@ -36,7 +36,7 @@ i {
 .search-city {
   margin: 20px;
 }
-.col-md {
+.card {
   text-align: center;
   margin-top: 20px;
   border-radius: 10px;
@@ -45,6 +45,10 @@ i {
     rgb(245, 239, 249) 30.1%,
     rgb(207, 211, 236) 100.2%
   );
+}
+.card img {
+  display: block;
+  margin: auto;
 }
 header {
   font-size: 20px;
