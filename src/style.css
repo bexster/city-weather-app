@@ -36,9 +36,10 @@ i {
 .search-city {
   margin: 20px;
 }
-.forecast {
+.col-md {
   text-align: center;
   margin-top: 20px;
+  border-radius: 10px;
   background: linear-gradient(
     109.6deg,
     rgb(245, 239, 249) 30.1%,
