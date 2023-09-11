@@ -70,28 +70,6 @@ function showCurrentCity() {
 let clickCurrentCity = document.querySelector("#current-city-button");
 clickCurrentCity.addEventListener("click", showCurrentCity);
 
-//temp change
-function showFahrTemp(event) {
-  event.preventDefault();
-  let formatFahr = document.querySelector("#current-temp");
-  CelTemp.classList.remove("active");
-  FahrTemp.classList.add("active");
-  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
-  formatFahr.innerHTML = `${fahrenheitTemp}`;
-}
-let FahrTemp = document.querySelector("#fahrenheit");
-FahrTemp.addEventListener("click", showFahrTemp);
-
-function showCelTemp(event) {
-  event.preventDefault();
-  let formatCel = document.querySelector("#current-temp");
-  CelTemp.classList.add("active");
-  FahrTemp.classList.remove("active");
-  formatCel.innerHTML = Math.round(celsiusTemperature);
-}
-let CelTemp = document.querySelector("#celsius");
-CelTemp.addEventListener("click", showCelTemp);
-
 //API
 
 function receivePosition(position) {
